@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Quiz App</title>
+    <style>
+        /* Add your custom styles here */
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Quiz App</h1>
+        <div id="quiz-container">
+            <!-- Quiz questions will be dynamically added here -->
+        </div>
+        <div class="text-center mt-3">
+            <button id="submit-btn" class="btn btn-primary">Submit Answers</button>
+        </div>
+        <div id="result-container" class="text-center mt-3">
+            <!-- Quiz results will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Define your quiz questions and answers
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["London", "Berlin", "Paris", "Madrid"],
+                correctAnswer: "Paris"
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: ["Earth", "Mars", "Venus", "Jupiter"],
+                correctAnswer: "Mars"
+            },
+            {
+                question: "What is 2 + 2?",
+                options: ["3", "4", "5", "6"],
+                correctAnswer: "4"
+            }
+        ];
+
+        const quizContainer = document.getElementById("quiz-container");
+        const submitButton = document.getElementById("submit-btn");
+        const resultContainer = document.getElementById("result-container");
+
+        // Create quiz questions dynamically
+        function buildQuiz() {
+            questions.forEach((question, index) => {
+                const questionElement = document.createElement("div");
+                questionElement.classList.add("mb-3");
+                questionElement.innerHTML = `
+                    <p><strong>Question ${index + 1}:</strong> ${question.question}</p>
+                    <div class="form-check">
+                        ${question.options.map((option, i) => `
+                            <input class="form-check-input" type="radio" name="q${index}" id="q${index}a${i}" value="${option}">
+                            <label class="form-check-label" for="q${index}a${i}">${option}</label>
+                            <br>
+                        `).join("")}
+                    </div>
+                `;
+                quizContainer.appendChild(questionElement);
+            });
+        }
+
+        // Calculate and display the quiz results
+        function showResults() {
+            const answers = questions.map((question, index) => {
+                const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                return selectedOption ? selectedOption.value : undefined;
+            });
+
+            const score = answers.filter((answer, index) => answer === questions[index].correctAnswer).length;
+            
+            resultContainer.innerHTML = `
+                <h2>Your Score:</h2>
+                <p>${score} out of ${questions.length}</p>
+            `;
+        }
+
+        buildQuiz();
+
+        submitButton.addEventListener("click", showResults);
+    </script>
+
+</body>
+</html>
