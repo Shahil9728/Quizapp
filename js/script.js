@@ -1,79 +1,132 @@
 const questionsData = [
   {
-    question: "What is the most popular programming language in 2023?",
-    options: ["Javascript", "Java", "C#", "Python", "Golang"],
-    answer: "Javascript",
+    question: "What is 2 + 2?",
+    options: ["3", "4", "5", "6", "7"],
+    answer: "4",
   },
   {
-    question: "What was the first web browser?",
-    options: [
-      "Internet Explorer",
-      "Google Chrome",
-      "Firefox",
-      "Netscape Navigator",
-      "Yandex",
-    ],
-    answer: "Netscape Navigator",
+    question: "What is 5 - 3?",
+    options: ["1", "2", "3", "4", "5"],
+    answer: "2",
   },
   {
-    question: "What is the release date of Javascript?",
-    options: ["1995", "1996", "1997", "1998", "1999"],
-    answer: "1995",
+    question: "What is 6 × 8?",
+    options: ["24", "36", "48", "64", "72"],
+    answer: "48",
   },
   {
-    question: "Which is a CSS property?",
-    options: ["for loop", "if statement", "flexbox", "while", "switch-case"],
-    answer: "flexbox",
+    question: "What is 10 ÷ 2?",
+    options: ["2", "4", "5", "6", "7"],
+    answer: "5",
   },
   {
-    question: "Which is the Javascript library?",
-    options: ["React", "Angular", "Vue", "Ember", "Blazor"],
-    answer: "React",
+    question: "What is 9 squared (9²)?",
+    options: ["18", "27", "36", "45", "81"],
+    answer: "81",
   },
   {
-    question: "What is the most popular database management system?",
-    options: ["Oracle", "SQL Server", "PostgreSQL", "SQLLite", "MySQL"],
-    answer: "MySQL",
+    question: "What is 7 + 3?",
+    options: ["8", "9", "10", "11", "12"],
+    answer: "10",
   },
   {
-    question: "Which is not a backend technologies approach?",
-    options: ["MERN", "MEVN", "LAMP", ".NET", "Tensorflow"],
-    answer: "Tensorflow",
+    question: "What is 15 - 7?",
+    options: ["5", "6", "7", "8", "9"],
+    answer: "8",
   },
   {
-    question: "What does HTTP stand for?",
-    options: [
-      "Hypertext Transfer Protocol",
-      "Hyper Text Transmission Protocol",
-      "Hyper Transfer Transmission Protocol",
-      "Hyper Text Transfer Processes",
-      "Hyper Transfer Transmission Processes",
-    ],
-    answer: "Hypertext Transfer Protocol",
+    question: "What is 4 × 9?",
+    options: ["24", "32", "36", "40", "45"],
+    answer: "36",
   },
   {
-    question: 'What is the long form of "CRUD"?',
-    options: [
-      "CREATE REMOVE UPDATE DELETE",
-      "CREATE READ UPDATE DELETE",
-      "CREATE REMOVE UPDATE DATA",
-      "CREATE RESET UPDATE DELETE",
-      "CREATE RESET UPDATE DATA",
-    ],
-    answer: "CREATE READ UPDATE DELETE",
+    question: "What is 18 ÷ 3?",
+    options: ["3", "4", "5", "6", "7"],
+    answer: "6",
   },
   {
-    question: "What is the long form of NoSQL?",
-    options: [
-      "No SQL",
-      "Not only SQL",
-      "Not One SQL",
-      "Notation SQL",
-      "Number One SQL",
-    ],
-    answer: "Not only SQL",
+    question: "What is 12 squared (12²)?",
+    options: ["120", "132", "144", "156", "168"],
+    answer: "144",
   },
 ];
+
+// const questionsData = [
+//   {
+//     question: "What is the most popular programming language in 2023?",
+//     options: ["Javascript", "Java", "C#", "Python", "Golang"],
+//     answer: "Javascript",
+//   },
+//   {
+//     question: "What was the first web browser?",
+//     options: [
+//       "Internet Explorer",
+//       "Google Chrome",
+//       "Firefox",
+//       "Netscape Navigator",
+//       "Yandex",
+//     ],
+//     answer: "Netscape Navigator",
+//   },
+//   {
+//     question: "What is the release date of Javascript?",
+//     options: ["1995", "1996", "1997", "1998", "1999"],
+//     answer: "1995",
+//   },
+//   {
+//     question: "Which is a CSS property?",
+//     options: ["for loop", "if statement", "flexbox", "while", "switch-case"],
+//     answer: "flexbox",
+//   },
+//   {
+//     question: "Which is the Javascript library?",
+//     options: ["React", "Angular", "Vue", "Ember", "Blazor"],
+//     answer: "React",
+//   },
+//   {
+//     question: "What is the most popular database management system?",
+//     options: ["Oracle", "SQL Server", "PostgreSQL", "SQLLite", "MySQL"],
+//     answer: "MySQL",
+//   },
+//   {
+//     question: "Which is not a backend technologies approach?",
+//     options: ["MERN", "MEVN", "LAMP", ".NET", "Tensorflow"],
+//     answer: "Tensorflow",
+//   },
+//   {
+//     question: "What does HTTP stand for?",
+//     options: [
+//       "Hypertext Transfer Protocol",
+//       "Hyper Text Transmission Protocol",
+//       "Hyper Transfer Transmission Protocol",
+//       "Hyper Text Transfer Processes",
+//       "Hyper Transfer Transmission Processes",
+//     ],
+//     answer: "Hypertext Transfer Protocol",
+//   },
+//   {
+//     question: 'What is the long form of "CRUD"?',
+//     options: [
+//       "CREATE REMOVE UPDATE DELETE",
+//       "CREATE READ UPDATE DELETE",
+//       "CREATE REMOVE UPDATE DATA",
+//       "CREATE RESET UPDATE DELETE",
+//       "CREATE RESET UPDATE DATA",
+//     ],
+//     answer: "CREATE READ UPDATE DELETE",
+//   },
+//   {
+//     question: "What is the long form of NoSQL?",
+//     options: [
+//       "No SQL",
+//       "Not only SQL",
+//       "Not One SQL",
+//       "Notation SQL",
+//       "Number One SQL",
+//     ],
+//     answer: "Not only SQL",
+//   },
+// ];
 
 
 
@@ -174,7 +227,9 @@ function getResult() {
   let resultMessage = `Congratulations ${name}! <br/>You answered
   <span class='correctAnswer'>${correctAnswers}</span> out of
   ${questionsData.length} questions correctly.<br/> 
-  <button class='playAgain btn btn-warning mt-4'>Play Again</button>`;
+  <button class='playAgain btn btn-warning mt-4'>Play Again</button>
+  <p>Now you are able to access the service Page</p>
+  `;
 
   quizPage.style.display = "none";
   resultPage.style.display = "block";
